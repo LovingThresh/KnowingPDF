@@ -94,6 +94,11 @@ file(GLOB_RECURSE ${TARGET_NAME}_SOURCE LIST_DIRECTORIES false "${${TARGET_NAME}
 source_group(TREE "${${TARGET_NAME}_SRC_DIR}" PREFIX "${TARGET_NAME}\\Headers" FILES ${${TARGET_NAME}_HEADER_IN_SRC})
 source_group(TREE "${${TARGET_NAME}_SRC_DIR}" PREFIX "${TARGET_NAME}\\Sources" FILES ${${TARGET_NAME}_SOURCE})
 
+# Add styles.qss to the project
+set(${TARGET_NAME}_RESOURCE_DIR "${PROJECT_SOURCE_DIR}/Resource")
+set(${TARGET_NAME}_QSS_FILE "${${TARGET_NAME}_RESOURCE_DIR}/styles.qss")
+source_group("${TARGET_NAME}\\Resources" FILES ${${TARGET_NAME}_QSS_FILE})
+
 ##创建/更新ts文件并提供qm生成动作
 find_package(Qt5LinguistTools)
 qt5_create_translation(${TARGET_NAME}_QM

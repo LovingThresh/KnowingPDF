@@ -13,12 +13,23 @@
 #include <QMessageBox>
 #include <QHeaderView>
 #include <QFont>
+#include <QFile>
 
 TreeWidgetManager::TreeWidgetManager(QTreeWidget* treeWidget, QObject* parent)
     : QObject(parent), m_pTreeWidget(treeWidget) {
 }
 
 void TreeWidgetManager::setupTreeWidget() {
+
+    QFile file(":/styles.qss"); // 假设文件放在资源文件中
+    if (file.open(QFile::ReadOnly)) {
+        const QString styleSheet = QLatin1String(file.readAll());
+        m_pTreeWidget->setStyleSheet(styleSheet);
+    }
+    else {
+        qWarning("无法加载QSS文件");
+    }
+
     // Set up headers
     m_pTreeWidget->setColumnCount(6);
     const QStringList headers = { "Type", "Page", "Color", "Length", "Content", "Remark" };

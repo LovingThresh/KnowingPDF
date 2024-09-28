@@ -1,0 +1,49 @@
+/* 树形控件的整体背景颜色 */
+QTreeWidget {
+    background-color: #E6F5D0; /* 淡绿色 */
+    color: #333333;            /* 深灰色文本 */
+    font-size: 16px;           /* 字体大小 */
+    border: 1px solid #A9D5B8; /* 边框设置 */
+}
+
+/* 标题栏样式 */
+QHeaderView::section {
+    background-color: #A9D5B8; /* 深淡绿色背景 */
+    color: #FFFFFF;            /* 白色文本 */
+    padding: 4px;
+    border: 1px solid #88C097; /* 深绿色边框 */
+    font-size: 18px;           /* 字体大小 */
+    font-weight: bold;         /* 加粗 */
+}
+
+/* 节点样式：普通状态 */
+QTreeWidget::item {
+    background-color: #E6F5D0; /* 节点的淡绿色背景 */
+    color: #333333;            /* 节点的文字颜色 */
+}
+
+/* 节点样式：鼠标悬停 */
+QTreeWidget::item:hover {
+    background-color: #C5E8A6; /* 鼠标悬停时的浅绿色背景 */
+}
+
+/* 节点样式：选中状态 */
+QTreeWidget::item:selected {
+    background-color: #A9D5B8; /* 选中时的深淡绿色背景 */
+    color: #FFFFFF;            /* 选中文本的白色字体 */
+}
+
+/* 可编辑项的样式 */
+QTreeWidget::item:selected:active {
+    background-color: #88C097; /* 激活编辑状态时的绿色背景 */
+    color: #FFFFFF;            /* 白色文字 */
+}
+
+/* 树形节点的折叠/展开控制样式 */
+QTreeView::branch:closed:has-children {
+    image: url(:/icons/branch_closed.png); /* 使用自定义图标 */
+}
+
+QTreeView::branch:open:has-children {
+    image: url(:/icons/branch_open.png);   /* 使用自定义图标 */
+}
