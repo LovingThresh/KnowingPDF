@@ -8,21 +8,21 @@
 // int main(int argc, char* argv[]) {
 //     QApplication app(argc, argv);
 //
-//     // ³õÊ¼»¯ PDFium
+//     // ï¿½ï¿½Ê¼ï¿½ï¿½ PDFium
 //     initializePdFium();
 //
-//     // Ñ¡Ôñ PDF ÎÄ¼þ
+//     // Ñ¡ï¿½ï¿½ PDF ï¿½Ä¼ï¿½
 //     const QString filePath = QFileDialog::getOpenFileName(nullptr, "Open PDF File", "", "PDF Files (*.pdf)");
 //
 //     if (filePath.isEmpty()) {
 //         return -1;
 //     }
 //
-//     // ´´½¨ PDF ²é¿´Æ÷´°¿Ú
+//     // ï¿½ï¿½ï¿½ï¿½ PDF ï¿½é¿´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //     PDFViewer viewer(filePath);
 //     viewer.show();
 //
-//     // ½øÈë Qt Ö÷ÊÂ¼þÑ­»·
+//     // ï¿½ï¿½ï¿½ï¿½ Qt ï¿½ï¿½ï¿½Â¼ï¿½Ñ­ï¿½ï¿½
 //     return QApplication::exec();
 // }
 
@@ -35,21 +35,37 @@
 //     return QApplication::exec();
 // }
 
-#include <QApplication>
-#include "MainWindow.h"
+// #include <QApplication>
+// #include "MainWindow.h"
+//
+// int main(int argc, char* argv[]) {
+//     QApplication app(argc, argv);
+//
+//     // Create QTreeWidget
+//     QTreeWidget treeWidget;
+//     treeWidget.setWindowTitle("QTreeWidget Example");
+//
+//     // Create and set up TreeWidgetManager
+//     TreeWidgetManager treeWidgetManager(&treeWidget);
+//     treeWidgetManager.setupTreeWidget();
+//
+//     treeWidget.show();
+//
+//     return QApplication::exec();
+// }
 
-int main(int argc, char* argv[]) {
+#include <QApplication>
+#include "AMainWindows.h"
+
+int main(int argc, char* argv[])
+{
     QApplication app(argc, argv);
 
-    // Create QTreeWidget
-    QTreeWidget treeWidget;
-    treeWidget.setWindowTitle("QTreeWidget Example");
-
-    // Create and set up TreeWidgetManager
-    TreeWidgetManager treeWidgetManager(&treeWidget);
-    treeWidgetManager.setupTreeWidget();
-
-    treeWidget.show();
+    CAMainWindow mainWindow;
+    mainWindow.setWindowTitle("Two-Layer Example with DragBar and BlueLayer Rectangle");
+    mainWindow.resize(800, 600);
+    mainWindow.show();
 
     return QApplication::exec();
 }
+
